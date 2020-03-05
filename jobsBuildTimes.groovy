@@ -1,8 +1,3 @@
-//println(Jenkins.instance.metaClass.methods.name.sort().unique())
-//Jenkins.instance.getJobNames()
-//Hudson.instance.items.get(40).lastBuild.time
-
-
 jobs = ["buildable":[],"nonbuildable":[]]
 
 
@@ -21,27 +16,19 @@ for (item in Hudson.instance.items)
             builddate = item.lastBuild.time
           //println(item.name + " " + item.lastBuild.time);
 
-          jobs["buildable"].add(item.name)
+          	jobs["buildable"].add(item.name)
         }
         else
         {
-          println(item.name + " " + "Never Built")
-          jobs["nonbuildable"].add(item.name)
+          	println(item.name + " " + "Never Built")
+          	jobs["nonbuildable"].add(item.name)
         }
         builddate += 357 //add +1year to last build
-        println(item.name + " " + builddate.after(now)) // true if in the future
+      	if(!builddate.after(now))
+      	{	
+        	println(item.name + " has not been built for 356+ days " + builddate.after(now))
+        }
+        
     }
   }
-}
-println("===========buildable jobs============")
-for (job in jobs["buildable"])
-{
-    println(job)
-}
-
-println("=============nonbuildable jobs===============")
-
-for (job in jobs["nonbuildable"])
-{
-    println(job)
 }
