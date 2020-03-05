@@ -1,3 +1,7 @@
+//println(Jenkins.instance.metaClass.methods.name.sort().unique())
+//Jenkins.instance.getJobNames()
+//Hudson.instance.items.get(40).lastBuild.time
+
 jobs = ["buildable":[],"nonbuildable":[]]
 
 
