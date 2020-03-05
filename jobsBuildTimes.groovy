@@ -26,7 +26,7 @@ for (item in Hudson.instance.items)
         builddate += 357 //add +1year to last build
       	if(!builddate.after(now))
       	{	
-        	println(item.name + " has not been built for 356+ days " + builddate.after(now))
+        	println(item.name + " has not been built for 356+ days!")
         }
         
     }
