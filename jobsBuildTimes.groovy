@@ -4,13 +4,13 @@
 
 jobs = ["buildable":[],"nonbuildable":[]]
 
-
+println("Job,lastBuild,URL")
 Date now = new Date()
 Date builddate
 
 for (item in Hudson.instance.items) {
   
-  if(!item.name.contains("Admin")) { //omit com.cloudbees.hudson.plugins.folder.Folder
+  if(!item.class.toString().contains("folder.Folder")) { //omit com.cloudbees.hudson.plugins.folder.Folder
     
     if(item.buildable) {
      	if(item.lastBuild != null && item.lastBuild.time != "") {
